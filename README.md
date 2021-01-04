@@ -69,17 +69,17 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-..* Web 1 - 10.0.0.5
-..* Web 2 - 10.0.0.6
-..* Web 3 - 10.0.0.7
++ Web 1 - 10.0.0.5
++ Web 2 - 10.0.0.6
++ Web 3 - 10.0.0.7
 
 We have installed the following Beats on these machines:
-..* Filebeat
-..* Metricbeat
++ Filebeat
++ Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-..* Filebeat forwards and centralizse a wide range of logs and files such as event and system logs
-..* Metricbeat is a lightweight way to send system and service statistics such as CPU and memory utilization
++ Filebeat forwards and centralizse a wide range of logs and files such as event and system logs
++ Metricbeat is a lightweight way to send system and service statistics such as CPU and memory utilization
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -91,11 +91,7 @@ SSH into the control node and follow the steps below:
 
 ### Commands used
 To update/modify the YAML playbook file, use the following command in the directory the file is in:
-..* "nano filebeat-playbook.yml"
++ "nano filebeat-playbook.yml"
 
 To run a playbook file, use the following command inside /etc/ansible:
-..* "ansible playbook filebeat-playbook.yml"
-
-
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
++ "ansible playbook filebeat-playbook.yml"
