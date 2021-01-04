@@ -1,6 +1,6 @@
 ## Automated ELK Stack Deployment
 
-Hello and Welcome!
+Hello and welcome!
 
 The files in this repository were used to configure the network depicted below.
 
@@ -55,13 +55,13 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it can handle complex tasks and can be easily scalable, ie Ansible can be used to update programs and configuration on hundreds of servers at once, but the process is the same whether you’re managing one computer or dozens. 
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Install docker
+- Increase virtual memory
+- Install python3
+- Install container image sebp/elk:761
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -69,25 +69,33 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+..* Web 1 - 10.0.0.5
+..* Web 2 - 10.0.0.6
+..* Web 3 - 10.0.0.7
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+..* Filebeat
+..* Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+..* Filebeat forwards and centralizse a wide range of logs and files such as event and system logs
+..* Metricbeat is a lightweight way to send system and service statistics such as CPU and memory utilization
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the filebeat-playbook.yml and metricbeat-playbook.yml files to /etc/ansible
+- Update the /etc/ansible/hosts and filebeat.config/metricbeat.config files to include the host IP address and IP addresses of machines to monitor
+- Run the playbook, and navigate to 40.121.18.116/app/kibana to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+### Commands used
+To update/modify the YAML playbook file, use the following command in the directory the file is in:
+..* "nano filebeat-playbook.yml"
+
+To run a playbook file, use the following command inside /etc/ansible:
+..* "ansible playbook filebeat-playbook.yml"
+
+
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
